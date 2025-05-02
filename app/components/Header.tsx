@@ -1,118 +1,129 @@
-import React from 'react'
 
-const Header = () => {
+import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import useWindowSize from '../hooks/UseWindowSize';
+
+const navLinks = [
+  { name: 'About', href: '#' },
+  { name: 'Careers', href: '#' },
+  { name: 'Demo', href: '#' },
+  { name: 'Services', href: '#' },
+  { name: 'Contact', href: '#' },
+];
+
+
+interface Props {
+    setSelectedSection: (section: 'login' | 'chatroom') => void;
+  }
+  
+const Header: React.FC<Props> = ({ setSelectedSection }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const { width } = useWindowSize();
+
   return (
-    <header className="bg-white dark:bg-gray-900">
-    <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-      <div className="flex h-16 items-center justify-between">
-        <div className="md:flex md:items-center md:gap-12">
-        <img
-        src='/logo.png'
-        alt='logo'
-        className='w-[95px] h-[35px]'
+    <>
+      <header className="bg-white w-full z-50 relative">
+        <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            <div className="md:flex md:items-center md:gap-12">
+              <img src="/logo.png" alt="logo" className="w-[62px] h-[24px] lg:w-[95px] lg:h-[35px]" />
+            </div>
+
+            <div className="hidden md:block">
+              <nav>
+                <ul className="flex items-center gap-6 text-lg">
+                {navLinks.map((link) => (
+  <li key={link.name} className="relative group">
+    <a className="text-gray-600 transition cursor-pointer" href={link.href}>
+      {link.name}
+      <span className="block relative">
+        <motion.div
+          layoutId="underline"
+          className="absolute left-0 -bottom-1 h-[2px] w-full bg-[#FB8E0B] scale-x-0 group-hover:scale-x-100 origin-left transition-transform"
         />
-        </div>
-  
-        <div className="hidden md:block">
-          <nav aria-label="Global">
-            <ul className="flex items-center gap-6 text-sm">
-              <li>
-                <a
-                  className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                  href="#"
+      </span>
+    </a>
+  </li>
+))}
+
+                </ul>
+              </nav>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <div className="sm:flex sm:gap-4 flex justify-center items-center">
+                <h1 className="text-gray-600 text-base lg:text-lg cursor-pointer hover:text-[#FB8E0B]" onClick={() => setSelectedSection("login")}>Login</h1>
+                <div className="hidden sm:flex">
+                  <button onClick={() => setSelectedSection("chatroom")} className="group relative h-12 overflow-hidden cursor-pointer rounded-md bg-[#FB8E0B] px-6 text-white font-semibold transition">
+                    <span>Get Started Free</span>
+                    <div className="absolute inset-0 h-full w-0 bg-white/30 transition-[width] group-hover:w-full"></div>
+                  </button>
+                </div>
+              </div>
+
+              <div className="block md:hidden">
+                <button
+                  onClick={() => setIsOpen(true)}
+                  className="rounded-sm bg-[#FB8E0B] p-2 text-white cursor-pointer"
                 >
-                  About
-                </a>
-              </li>
-  
-              <li>
-                <a
-                  className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                  href="#"
-                >
-                  Careers
-                </a>
-              </li>
-  
-              <li>
-                <a
-                  className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                  href="#"
-                >
-                  History
-                </a>
-              </li>
-  
-              <li>
-                <a
-                  className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                  href="#"
-                >
-                  Services
-                </a>
-              </li>
-  
-              <li>
-                <a
-                  className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                  href="#"
-                >
-                  Projects
-                </a>
-              </li>
-  
-              <li>
-                <a
-                  className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                  href="#"
-                >
-                  Blog
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-  
-        <div className="flex items-center gap-4">
-          <div className="sm:flex sm:gap-4">
-            <a
-              className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm dark:hover:bg-teal-500"
-              href="#"
-            >
-              Login
-            </a>
-  
-            <div className="hidden sm:flex">
-              <a
-                className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
-                href="#"
-              >
-                Register
-              </a>
+                  <Menu />
+                </button>
+              </div>
             </div>
           </div>
-  
-          <div className="block md:hidden">
-            <button
-              className="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
         </div>
-      </div>
-    </div>
-  </header>
-  )
-}
+      </header>
+{width !== undefined && width < 1024 && (
 
-export default Header
+<AnimatePresence>
+{isOpen && (
+  <motion.aside
+    initial={{ x: '100%' }}
+    animate={{ x: 0 }}
+    exit={{ x: '100%' }}
+    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+    className="fixed top-0 right-0 h-full w-3/4 bg-white z-50 shadow-lg p-6"
+  >
+    <div className="flex justify-between items-center mb-6">
+      <button onClick={() => setIsOpen(false)}>
+        <X className="text-gray-700 cursor-pointer" />
+      </button>
+    </div>
+
+    <nav className="flex flex-col gap-4">
+{navLinks.map((link) => (
+<div key={link.name} className="relative group">
+<a
+href={link.href}
+onClick={() => setIsOpen(false)}
+className="text-gray-700 text-base"
+>
+{link.name}
+<motion.div
+  layoutId="underline"
+  className="absolute left-0 -bottom-1 h-[2px] w-[20%] bg-[#FB8E0B] scale-x-0 group-hover:scale-x-100 origin-left transition-transform"
+/>
+</a>
+</div>
+))}
+
+<div className="my-4 w-full h-[1px] bg-gray-300" />
+
+<button
+onClick={() => setSelectedSection("chatroom")}
+className="bg-[#FB8E0B] text-white py-2 px-4 rounded-md cursor-pointer"
+>
+Get Started Free
+</button>
+</nav>
+
+  </motion.aside>
+)}
+</AnimatePresence>
+)}
+    </>
+  );
+};
+
+export default Header;
