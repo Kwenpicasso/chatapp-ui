@@ -24,7 +24,7 @@ const Header: React.FC<Props> = ({ setSelectedSection }) => {
   return (
     <>
       <header className="bg-white w-full z-50 relative">
-        <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto  px-4 sm:px-6 lg:px-[8%] w-full">
           <div className="flex h-16 items-center justify-between">
             <div className="md:flex md:items-center md:gap-12">
               <img src="/logo.png" alt="logo" className="w-[62px] h-[24px] lg:w-[95px] lg:h-[35px]" />
