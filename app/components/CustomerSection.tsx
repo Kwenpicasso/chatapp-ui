@@ -2,7 +2,7 @@ import React from 'react'
 
 const CustomerSection = () => {
   return (
-    <div className='w-full bg-[#F8F8FA] p-[5%] gap-6 mt-[7%] mx-auto  px-4 sm:px-6 lg:px-[8%] flex justify-center items-center flex-col lg:flex-row'>
+    <div className='w-full bg-[#F8F8FA] p-[8%] gap-6 mt-[7%] mx-auto  px-4 sm:px-6 lg:px-[8%] flex justify-center items-center flex-col lg:flex-row'>
       <div className="w-full lg:w-1/2">
     <div className=' flex justify-center items-center w-full lg:w-[90%] relative'>
       <div className="w-full bg-[#12141D] opacity-70 absolute  left-0 right-0 bottom-0 h-[60px] lg:h-[85px] flex justify-center items-center gap-8">

@@ -31,7 +31,7 @@ const ClientSection = () => {
         className='absolute left-0 w-[200px] lg:w-[350px]'
         />
 
-  <div className="w-full space-y-12 py-[4%]">
+  <div className="w-full space-y-12 py-[10%] lg:py-[4%]">
   <h1 className='text-white font-bold text-center text-[28px] lg:text-[45px] w-[70%] lg:w-[50%] mx-auto leading-[30px] lg:leading-[50px]'>Our blessed client said about us 😍</h1>
 
   <div className="w-full flex justify-around items-center  gap-6 flex-col lg:flex-row">
@@ -41,7 +41,7 @@ const ClientSection = () => {
       key={index}
       className="w-full lg:w-[45%] flex flex-col justify-center items-center space-y-6"
     >
-      <div className="w-full bg-white p-5 flex flex-col justify-center h-[200px] items-center rounded-lg gap-3 text-[18px] text-center relative">
+      <div className="w-full bg-white p-5 flex flex-col justify-center h-[250px] lg:h-[200px] items-center rounded-lg gap-3 text-[18px] text-center relative">
         <h1 className="text-[#FD6003] font-semibold">{testimonial.quoteTitle}</h1>
         <h1 className="text-[#383A47] text-[16px]">{testimonial.quoteText}</h1>
         <div className="w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white absolute bottom-[-8px]"></div>
