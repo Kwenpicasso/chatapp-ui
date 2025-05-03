@@ -1,5 +1,9 @@
 import React from 'react'
-export function LoginForm() {
+
+interface Props {
+  setSelectedSection: (section: 'login' | 'chatroom') => void;
+}
+export function LoginForm({setSelectedSection}:Props) {
   return (
     <form className="flex flex-col gap-6">
       <div className="flex flex-col items-center gap-2 text-center">
@@ -46,7 +50,7 @@ export function LoginForm() {
 />
 
         </div>
-        <button  className="group relative h-12 overflow-hidden cursor-pointer rounded-md bg-[#FB8E0B] px-6 text-white font-semibold transition">
+        <button onClick={() => setSelectedSection("chatroom")}  className="group relative h-12 overflow-hidden cursor-pointer rounded-md bg-[#FB8E0B] px-6 text-white font-semibold transition">
                     <span>Login</span>
                     <div className="absolute inset-0 h-full w-0 bg-white/30 transition-[width] group-hover:w-full"></div>
                   </button>

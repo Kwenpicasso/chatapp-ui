@@ -15,7 +15,9 @@ export default function Home() {
   return (
 <>
 {selectedSection === 'login' ? (
-  <Login/>
+  <Login
+  setSelectedSection={setSelectedSection}
+  />
 ) : 
 selectedSection === 'chatroom' ? (
   <ChatRoom/>
