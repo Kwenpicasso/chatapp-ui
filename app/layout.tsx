@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` ${bricolage.variable} antialiased w-full relative overflow-hidden max-w-[2500px] mx-auto`}
+        className={` ${bricolage.variable} antialiased w-full relative overflow-x-hidden max-w-[2500px] mx-auto`}
       >
         {children}
       </body>

@@ -4,6 +4,9 @@ import Header from "./components/Header";
 import Login from "./components/Login";
 import ChatRoom from "./components/ChatRoom";
 import HeroSection from "./components/HeroSection";
+import Features from "./components/Features";
+import CustomerSection from "./components/CustomerSection";
+import ClientSection from "./components/ClientSection";
 
 export default function Home() {
   const [selectedSection, setSelectedSection] = useState<'login' | 'chatroom' | null>(null);
@@ -22,6 +25,9 @@ selectedSection === 'chatroom' ? (
   <HeroSection
     setSelectedSection={setSelectedSection}
   />
+  <Features/>
+  <CustomerSection/>
+  <ClientSection/>
  </div>
 )
 
