@@ -5,7 +5,6 @@ import MessageHeaderforMobile from './MessageHeaderforMobile';
 import AllMessages from './AllMessages';
 import UnreadMessages from './UnreadMessages';
 import SingleChat from './SingleChat';
-import { h1 } from 'framer-motion/client';
 import MessageHeaderforDestop from './MessageHeaderforDestop';
 
 interface Message {

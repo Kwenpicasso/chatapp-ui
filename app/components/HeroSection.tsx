@@ -1,6 +1,5 @@
 import React from 'react'
-
-
+import { TextEffect } from './TextEffect';
 
 interface Props {
   setSelectedSection: (section: 'login' | 'chatroom') => void;
@@ -9,8 +8,19 @@ const HeroSection = ({setSelectedSection}:Props) => {
   return (
     <div className='w-full mx-auto  px-4 sm:px-6 lg:px-[8%] flex justify-between items-center gap-12 lg:gap-0 flex-col lg:flex-row mt-8'>
       <div className="w-full lg:w-1/2 space-y-4">
-      <h1 className='text-[#1B1C20] leading-[40px] lg:leading-[60px] text-[30px] lg:text-[50px] font-bold'>Start chatting with <br /> customers, anytime, <br /> anywhere with Apex</h1>
-      <p className='text-[#383A47] leading-[25px] lg:leading-[30px] text-[14px] lg:text-[16px] w-xs lg:max-w-sm'>Great software that allows you to chat from any place at any time without any interruption.</p>
+      <TextEffect
+  per='char'
+  preset='fade'
+  delay={0.5}
+  as='h1'
+  className='text-[#1B1C20] leading-[40px] lg:leading-[60px] text-[30px] lg:text-[50px] font-bold'
+>
+  Start chatting with customers, anytime, anywhere with Apex
+</TextEffect>
+
+<TextEffect per="word" preset="fade" delay={1} className='text-[#383A47] leading-[25px] lg:leading-[30px] text-[14px] lg:text-[16px] w-xs lg:max-w-sm'>
+    Great software that allows you to chat from any place at any time without any interruption.
+  </TextEffect>
       <button onClick={() => setSelectedSection("chatroom")} className="group cursor-pointer relative inline-flex h-[calc(48px+8px)] items-center justify-center rounded-full bg-[#FB8E0B] py-1 pl-6 pr-14 font-medium text-white">
   <span className="z-10 pr-2 text-white transition-colors duration-300 group-hover:text-[#FB8E0B]">
    Start Chatting Now
