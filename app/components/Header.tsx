@@ -26,7 +26,7 @@ const Header: React.FC<Props> = ({ setSelectedSection }) => {
         <div className="mx-auto  px-4 sm:px-6 lg:px-[8%] w-full">
           <div className="flex h-16 items-center justify-between">
             <div className="md:flex md:items-center md:gap-12">
-              <img src="/logo.png" alt="logo" className="w-[62px] h-[24px] lg:w-[95px] lg:h-[35px]" />
+              <img src='https://res.cloudinary.com/dequoncot/image/upload/v1746347981/Logo_utklwl.png' alt="logo" className="w-[62px] h-[24px] lg:w-[95px] lg:h-[35px]" />
             </div>
 
             <div className="hidden md:block">
